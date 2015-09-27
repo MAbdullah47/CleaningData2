@@ -11,9 +11,6 @@ mean<-Train_Data_Measurment[grepl("[Mm]ean", names(Train_Data_Measurment))]
 std<-Train_Data_Measurment[grepl("[Ss]td", names(Train_Data_Measurment))]
 dfList=list(mean,std)
 View(dfList)
-mean<-dataframe[grepl("[Mm]ean", names(dataframe))]
-std<-dataframe[grepl("[Ss]td", names(dataframe))]
-dfList=list(mean,std)
 Train_Data_Measurment <- dfList
 View(Train_Data_Measurment)
 #----> End Filtering
@@ -118,6 +115,7 @@ library(data.table)
 Mrg_All_Test_Train <- merge(Merge_Subject_Activity_Plus_Measurment, Merge_Test_Subject_Activity_Plus_Measurment,all = TRUE)
 View(Mrg_All_Test_Train)
 write.table(Mrg_All_Test_Train, "D:/Coursera/Cleaning Data/Project 1/Merg_Test_Train_Measurment.txt", sep="\t")
+rm(list=ls())
 Mrg_All_Test_Train <- read.table("D:/Coursera/Cleaning Data/Project 1/Merg_Test_Train_Measurment.txt", header = TRUE,sep="\t")
 #------> End Merging
 
@@ -137,6 +135,3 @@ FeaturesDS <- read.table("D:/Coursera/Cleaning Data/Project 1/Mean_All_Test_Trai
 names(FeaturesDS)[0]<-"ID"
 View(FeaturesDS)
 #---->vv
- 
-
-
